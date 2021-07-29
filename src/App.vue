@@ -6,9 +6,21 @@
     <UltimasTresDirectivas v-show="false" />
     <ComputedProperties v-show="false" />
     <Watchers v-show="false" />
-    <ReutilizableButton message="hola" />
-    <ReutilizableButton :message="message1" />
-    <ReutilizableButton :message="message2" />
+    <ReutilizableButton v-show="false" :secondMessage="message2" />
+    <DialogComponent
+      @closeDialog="visibilityOfDialog = false"
+      :visibility="visibilityOfDialog"
+      :message="message2"
+      :count="0"
+      v-show="false"
+    />
+    <el-button @click="visibilityOfDialog = true" v-show="false">
+      Abrir dialogo!
+    </el-button>
+
+    <UserFormComponent @dataFromChild="setUserData"/>
+    <h3>El nombre del usuario {{nickname}} es {{name}}</h3>
+    
   </div>
 </template>
 
@@ -20,15 +32,26 @@ import UltimasTresDirectivas from "./components/UltimasTresDirectivas.vue";
 import ComputedProperties from "./components/ComputedProperties.vue";
 import Watchers from "./components/Watchers.vue";
 import ReutilizableButton from "./components/ReutilizableButton.vue";
+import DialogComponent from "./components/DialogComponent.vue";
+import UserFormComponent from "./components/UserFormComponent.vue";
 
 export default {
   name: "App",
-  
+
   data: () => ({
-    message1: "Hola desde el componente dos",
-    message2: "Hola desde el componente tres",
+    message1: 9,
+    message2: "HOLA ESTE ES EL MENSAJE",
+    visibilityOfDialog: false,
+    name: '',
+    nickname: ''
   }),
 
+  methods: {
+    setUserData(dataUser){
+      this.name = dataUser.name;
+      this.nickname = dataUser.username;
+    }
+  },
   components: {
     HelloWorld,
     DirectivasExample,
@@ -37,6 +60,8 @@ export default {
     ComputedProperties,
     Watchers,
     ReutilizableButton,
+    DialogComponent,
+    UserFormComponent
   },
 };
 </script>

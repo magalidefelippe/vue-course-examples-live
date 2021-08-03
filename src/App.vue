@@ -18,9 +18,9 @@
       Abrir dialogo!
     </el-button>
 
-    <UserFormComponent @dataFromChild="setUserData"/>
-    <h3>El nombre del usuario {{nickname}} es {{name}}</h3>
-    
+    <UserFormComponent @dataFromChild="setUserData" v-show="false"/>
+    <h3 v-show="false">El nombre del usuario {{nickname}} es {{name}}</h3>
+    <HooksComponent/>
   </div>
 </template>
 
@@ -34,6 +34,7 @@ import Watchers from "./components/Watchers.vue";
 import ReutilizableButton from "./components/ReutilizableButton.vue";
 import DialogComponent from "./components/DialogComponent.vue";
 import UserFormComponent from "./components/UserFormComponent.vue";
+import HooksComponent from "./components/HooksComponent.vue";
 
 export default {
   name: "App",
@@ -61,7 +62,8 @@ export default {
     Watchers,
     ReutilizableButton,
     DialogComponent,
-    UserFormComponent
+    UserFormComponent,
+    HooksComponent
   },
 };
 </script>

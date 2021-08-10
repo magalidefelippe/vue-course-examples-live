@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- 
     <HelloWorld v-show="false" />
     <DirectivasExample v-show="false" />
     <DirectivasBindAndModel v-show="false" />
@@ -20,12 +21,15 @@
 
     <UserFormComponent @dataFromChild="setUserData" v-show="false"/>
     <h3 v-show="false">El nombre del usuario {{nickname}} es {{name}}</h3>
-    <HooksComponent/>
+    <HooksComponent/> 
+-->
+
+    <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+/*import HelloWorld from "./components/HelloWorld.vue";
 import DirectivasExample from "./components/DirectivasExample.vue";
 import DirectivasBindAndModel from "./components/DirectivasBindAndModel.vue";
 import UltimasTresDirectivas from "./components/UltimasTresDirectivas.vue";
@@ -34,7 +38,7 @@ import Watchers from "./components/Watchers.vue";
 import ReutilizableButton from "./components/ReutilizableButton.vue";
 import DialogComponent from "./components/DialogComponent.vue";
 import UserFormComponent from "./components/UserFormComponent.vue";
-import HooksComponent from "./components/HooksComponent.vue";
+import HooksComponent from "./components/HooksComponent.vue";*/
 
 export default {
   name: "App",
@@ -43,17 +47,17 @@ export default {
     message1: 9,
     message2: "HOLA ESTE ES EL MENSAJE",
     visibilityOfDialog: false,
-    name: '',
-    nickname: ''
+    name: "",
+    nickname: "",
   }),
 
   methods: {
-    setUserData(dataUser){
+    setUserData(dataUser) {
       this.name = dataUser.name;
       this.nickname = dataUser.username;
-    }
+    },
   },
-  components: {
+  /*components: {
     HelloWorld,
     DirectivasExample,
     DirectivasBindAndModel,
@@ -64,6 +68,6 @@ export default {
     DialogComponent,
     UserFormComponent,
     HooksComponent
-  },
+  },*/
 };
 </script>
